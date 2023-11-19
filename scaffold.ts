@@ -4,19 +4,17 @@ const INDEX_HTML = `
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="index.js" type="module"></script>
+  <script src="index.js"></script>
   <script defer src="reload.js"></script>
-  <button onclick="_app.hello()">Hello</button>
+  <button onclick="hello()">Hello</button>
 </head>
 </html>
 `;
 const INDEX_TS = `
+// NOTE: bundling will take care of imports so stuff like \`import "./other.ts"\` does work
 export function hello() {
   alert("hello world");
 }
-
-// @ts-ignore export to index.html
-window._app = { hello };
 `;
 const RELOAD_JS = `
 const reloader = new WebSocket("ws://localhost:8001");

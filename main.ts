@@ -43,9 +43,20 @@ class Watcher {
 async function bundler() {
   if (!await exists("index.ts")) return;
 
-  const { code } = await bundle(
+  let { code } = await bundle(
     new URL("file:///" + Deno.cwd() + "/index.ts"),
   );
+
+  // - if `index.ts` contains an exported function, the bundled js will contain that export, which is not allowed in a javascript with type!=module
+  // - if we remove the export keyword, the function wont be bundled at all
+  // - the third option is to use js type=module but that makes the script variables unaccessible from the outside (without some hacks)
+  //
+  // we just go with option 1, bundle the exported functions, then remove that export from the bundled file
+  let lines = code.trim().split("\n");
+  if (lines.at(-1)?.startsWith("export {")) {
+    lines = lines.slice(0, -1);
+  }
+  code = lines.join("\n");
 
   Deno.writeTextFileSync(
     "index.js",

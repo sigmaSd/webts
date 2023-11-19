@@ -2,7 +2,3 @@
 function hello() {
   alert("hello world");
 }
-window._app = {
-  hello,
-};
-export { hello as hello };
