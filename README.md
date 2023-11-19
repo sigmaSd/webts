@@ -5,7 +5,7 @@ Simple progrma to create a web app with typescript
 ## Install
 
 ```
-  deno install -n webts -A TODO/main.ts
+deno install -n webts -A TODO/main.ts
 ```
 
 ## Usage
@@ -13,14 +13,15 @@ Simple progrma to create a web app with typescript
 - scaffold the project
 
 ```
-  webts init myproject
+webts init myproject
 ```
 
 - run the project
 
 ```
-  cd my project && webts
-  firfox http://localhost:8000
+cd my project && webts
+firfox http://localhost:8000
 ```
 
-Now you can make changes to anyfile inside the project and it will automaticlly bundle the code reload the page
+Now you can make changes to anyfile inside the project and it will automaticlly
+bundle the code reload the page
