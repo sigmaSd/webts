@@ -19,7 +19,7 @@ webts init myproject
 - run the project
 
 ```
-cd my project && webts
+cd myproject && webts
 firefox http://localhost:8000
 ```
 
