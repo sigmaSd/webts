@@ -1,6 +1,6 @@
 # Web TS
 
-Simple progrma to create a web app with typescript
+Simple program to create a web app with typescript
 
 ## Install
 
