@@ -25,3 +25,5 @@ firefox http://localhost:8000
 
 Now you can make changes to anyfile inside the project and it will automaticlly
 bundle the code and reload the page
+
+[Screencast from 2023-11-19 19-57-54.webm](https://github.com/sigmaSd/webts/assets/22427111/e87930bf-cfa3-4580-b189-cdb083256007)
