@@ -24,4 +24,4 @@ firfox http://localhost:8000
 ```
 
 Now you can make changes to anyfile inside the project and it will automaticlly
-bundle the code reload the page
+bundle the code and reload the page
