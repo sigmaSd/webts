@@ -1,4 +1,4 @@
-import { bundle, serveDir } from "./deps.ts";
+import { bundle, exists, serveDir } from "./deps.ts";
 import { scaffold } from "./scaffold.ts";
 
 function startServer({ port }: { port: number }) {
@@ -41,6 +41,8 @@ class Watcher {
 }
 
 async function bundler() {
+  if (!await exists("index.ts")) return;
+
   const { code } = await bundle(
     new URL("file:///" + Deno.cwd() + "/index.ts"),
   );
