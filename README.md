@@ -20,7 +20,7 @@ webts init myproject
 
 ```
 cd my project && webts
-firfox http://localhost:8000
+firefox http://localhost:8000
 ```
 
 Now you can make changes to anyfile inside the project and it will automaticlly
