@@ -5,7 +5,7 @@ Simple program to create a web app with typescript
 ## Install
 
 ```
-deno install -n webts -A TODO/main.ts
+deno install -n webts -A https://raw.githubusercontent.com/sigmaSd/webts/0.1.0/main.ts
 ```
 
 ## Usage
