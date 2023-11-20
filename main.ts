@@ -52,11 +52,18 @@ async function bundler() {
   // - the third option is to use js type=module but that makes the script variables unaccessible from the outside (without some hacks)
   //
   // we just go with option 1, bundle the exported functions, then remove that export from the bundled file
-  let lines = code.trim().split("\n");
-  if (lines.at(-1)?.startsWith("export {")) {
-    lines = lines.slice(0, -1);
+
+  // go through lines in reverse
+  const lines = code.trim().split("\n").reverse();
+  let linesToRemove = 0;
+  for (const line of lines) {
+    if (line.startsWith("export {")) {
+      linesToRemove++;
+    } else {
+      break;
+    }
   }
-  code = lines.join("\n");
+  code = lines.slice(linesToRemove).reverse().join("\n");
 
   Deno.writeTextFileSync(
     "index.js",
