@@ -68,7 +68,14 @@ class Reloader {
   #sockets: Map<number, WebSocket> = new Map();
   #id = 0;
   constructor({ port }: { port: number }) {
-    Deno.serve({ port }, (req) => {
+    Deno.serve({
+      port,
+      onListen(params) {
+        console.log(
+          `Listening on ws://${params.hostname}:${params.port}`,
+        );
+      },
+    }, (req) => {
       if (req.headers.get("upgrade") != "websocket") {
         return new Response(null, { status: 501 });
       }
